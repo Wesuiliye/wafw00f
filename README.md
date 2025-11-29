@@ -290,6 +290,8 @@ git clone https://github.com/enablesecurity/wafw00f.git
 ```
 Then:
 ```
+使用当前 Python 环境中的 pip 工具，从当前目录（. 代表当前目录）安装一个 Python 包。
+注意这里并不会在当前目录生成exe，注意警告信息。
 cd wafw00f/
 python3 -m pip install .
 ```
