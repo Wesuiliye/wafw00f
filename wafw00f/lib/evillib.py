@@ -43,6 +43,7 @@ class waftoolsengine:
         self.proxies = proxies
         self.log = logging.getLogger('wafw00f')
         self.timeout = timeout
+        # 自选头
         if head:
             self.headers = head
         else:
@@ -50,10 +51,12 @@ class waftoolsengine:
 
     def Request(self, headers=None, path=None, params={}, delay=0):
         try:
+            # 延时
             time.sleep(delay)
             if not headers:
                 h = self.headers
             else: h = headers
+            # allow_redirects=self.allowredir: 决定是否跟随 HTTP 重定向（True 或 False，从类实例获取）。。
             req = requests.get(self.target, proxies=self.proxies, headers=h, timeout=self.timeout,
                     allow_redirects=self.allowredir, params=params, verify=False)
             self.log.info('Request Succeeded')
